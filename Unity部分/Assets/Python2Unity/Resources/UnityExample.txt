@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class Py2UnityTest : MonoBehaviour
+{
+    void Update()
+    {
+        Py2Unity.Instance.SendToPython(transform.position.z.ToString());
+        float z = float.Parse(Py2Unity.Instance.RecFromPython());
+        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+    }
+
+    private void OnDestroy()
+    {
+        Py2Unity.Instance.Dispose();
+    }
+}

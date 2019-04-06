@@ -1,0 +1,11 @@
+import Py2Unity
+
+p2u = Py2Unity.Py2Unity()
+
+while 1:
+    input = p2u.RecFromUnity()
+    print(input)
+    output = float(input) + 0.1
+    if output > 5:
+        output = 0
+    p2u.SendToUnity(str(output))
